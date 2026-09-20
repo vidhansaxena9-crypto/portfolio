@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vidhan Saxena-Portfolio</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --bg-card-hover: #334155;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      margin-bottom: 2rem;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(to right, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .meta-info {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      background: var(--accent-glow);
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1px solid var(--accent);
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--accent);
+      color: var(--bg-dark);
+    }
+
+    .quote-box {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.05), rgba(129, 140, 248, 0.05));
+      border-left: 4px solid var(--accent);
+      padding: 1.5rem;
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 2rem;
+      font-style: italic;
+      color: #e2e8f0;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .skill-card h3 {
+      color: var(--accent);
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-card ul {
+      list-style: none;
+    }
+
+    .skill-card li {
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .case-study {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: transform 0.2s ease;
+    }
+
+    .case-study:hover {
+      border-color: var(--accent);
+    }
+
+    .cs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .cs-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .cs-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      background: var(--bg-dark);
+      color: var(--accent);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1px solid var(--border);
+    }
+
+    .cs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .cs-box {
+      background: var(--bg-dark);
+      padding: 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .cs-box h4 {
+      color: var(--accent);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .cs-box p, .cs-box ul {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .cs-box ul {
+      padding-left: 1rem;
+    }
+
+    .experience-card {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .exp-title {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .exp-meta {
+      color: var(--accent);
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul.clean-list {
+      padding-left: 1.2rem;
+      color: var(--text-muted);
+    }
+
+    ul.clean-list li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <header>
+      <h1>VIDHAN SAXENA</h1>
+      <div class="subtitle">Product Designer & UI/UX Specialist</div>
+      <div class="meta-info">📍 Pilibhit / Bareilly, Uttar Pradesh, India | 📞 +91-7017164192 | ✉️ Vidhansaxena480@gmail.com</div>
+      <div class="links">
+        <a href="#" class="btn">Figma Community</a>
+        <a href="#" class="btn">https://www.linkedin.com/in/vidhan-saxena-001498262?</a>
+        <a href="#" class="btn">https://github.com/vidhansaxena9-crypto</a>
+      </div>
+    </header>
+
+    <div class="quote-box">
+      "Great product design lives at the intersection of human empathy, visual clarity, and technical feasibility."
+    </div>
+
+    <section>
+      <h2 class="section-title">🛠 Core Competencies & Toolkit</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Design & Research</h3>
+          <ul>
+            <li>• User Journey Mapping</li>
+            <li>• Wireframing & Prototyping</li>
+            <li>• Usability Testing & Research</li>
+            <li>• Heuristic Evaluation</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Technical & Systems</h3>
+          <ul>
+            <li>• Design System Architecture</li>
+            <li>• Component Tokens & Auto-Layout</li>
+            <li>• Responsive Web & Mobile Design</li>
+            <li>• Developer Handoff Specifications</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Tools & Platforms</h3>
+          <ul>
+            <li>• Figma & FigJam</li>
+            <li>• Adobe CC (Photoshop/Illustrator)</li>
+            <li>• HTML5 / CSS3 / JavaScript</li>
+            <li>• WordPress & CMS Builders</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">📂 Featured Case Studies</h2>
+
+      <!-- Case Study 1 -->
+      <div class="case-study">
+        <div class="cs-header">
+          <div class="cs-title">01. FeedTheNeed — Food Redistribution Network</div>
+          <div class="cs-tags">
+            <span class="tag">Lead UI/UX Designer</span>
+            <span class="tag">Social Impact</span>
+            <span class="tag">Mobile & Web</span>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">A digital platform bridging commercial food donors and distribution networks to reduce urban food waste[span_16](start_span)[span_16](end_span).</p>
+        
+        <div class="cs-grid">
+          <div class="cs-box">
+            <h4>The Problem</h4>
+            <p>High donor abandonment rates due to complex form layouts, multi-step navigation, and poor status tracking[span_17](start_span)[span_17](end_span).</p>
+          </div>
+          <div class="cs-box">
+            <h4>UX Process</h4>
+            <ul>
+              <li>Mapped operational pain points of local donors.</li>
+              <li>Streamlined donation funnel from 7 to 3 steps in Figma.</li>
+              <li>Built scalable component variants using Auto-Layout.</li>
+            </ul>
+          </div>
+          <div class="cs-box">
+            <h4>Key Impact</h4>
+            <p>Reduced log friction with intuitive presets; prepared foundation for automated logistics integration</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="case-study">
+        <div class="cs-header">
+          <div class="cs-title">02. Smart She Shield — Rapid-Response Safety Interface</div>
+          <div class="cs-tags">
+            <span class="tag">Product Designer</span>
+            <span class="tag">Emergency UX</span>
+            <span class="tag">Mobile Concept</span>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">An emergency response mobile concept focused on rapid-trigger safety alerts and location tracking</p>
+        
+        <div class="cs-grid">
+          <div class="cs-box">
+            <h4>The Problem</h4>
+            <p>Standard navigation trees fail in emergency scenarios where cognitive load must be zero</p>
+          </div>
+          <div class="cs-box">
+            <h4>UX Solution</h4>
+            <p>Designed a single-tap activation workflow prioritizing contrast, tap targets, and haptic triggers</p>
+          </div>
+          <div class="cs-box">
+            <h4>Accessibility</h4>
+            <p>Applied WCAG AAA standards for night mode and built interactive prototype micro-animations in Figma</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Study 3 -->
+      <div class="case-study">
+        <div class="cs-header">
+          <div class="cs-title">03. LouisianaHandymen — Portal Redesign</div>
+          <div class="cs-tags">
+            <span class="tag">UX Specialist</span>
+            <span class="tag">E-Commerce</span>
+            <span class="tag">Web App</span>
+          </div>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">A complete UI/UX overhaul and platform migration for a high-volume service provider</p>
+        
+        <div class="cs-grid">
+          <div class="cs-box">
+            <h4>The Problem</h4>
+            <p>High bounce rates caused by redundant navigation and non-responsive mobile views</p>
+          </div>
+          <div class="cs-box">
+            <h4>Execution</h4>
+            <p>Executed heuristic evaluations, wireframed new headers/footers, and optimized call-to-actions in Figma</p>
+          </div>
+          <div class="cs-box">
+            <h4>Results</h4>
+            <p>Directly raised contact form conversion rates after rebuilding component hierarchies</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section>
+      <h2 class="section-title">💼 Work Experience</h2>
+      
+      <div class="experience-card">
+        <div class="exp-title">Freelance UI/UX Designer & Web Specialist</div>
+        <div class="exp-meta">2025 – Present</div>
+        <ul class="clean-list">
+          <li>Executed end-to-end design cycles in Figma, translating client goals into low/high-fidelity wireframes and interactive prototypes</li>
+          <li>Unified third-party services into clean, high-converting landing hubs</li>
+          <li>Built scalable Figma UI kits and design tokens to streamline developer handoff</li>
+        </ul>
+      </div>
+
+      <div class="experience-card">
+        <div class="exp-title">Computer Operator & Data Specialist</div>
+        <div class="exp-meta">1.5 Years</div>
+        <ul class="clean-list">
+          <li>Conducted operational user flow analysis to optimize internal documentation layouts and data retrieval speeds</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">🎓 Education</h2>
+      <div class="experience-card">
+        <div class="exp-title">B.Tech in Computer Science & Engineering (Expected 2028)</div>
+        <div class="exp-meta">SRMS College of Engineering, Technology & Research (CET&R), Bareilly</div>
+	<div class="exp-title">Diploma in Electronics Engineering in 2023</div>
+        <div class="exp-meta">Government Polytechnic, College, Pilibhit</div>
+        <div class="exp-title">12th Completed from PCM in 2021</div>
+        <div class="exp-meta">Chirongilal Virendra Pal Saraswati Vidya Mandir Inter College, pilibhit</div>
+	<div class="exp-title">10th Completed in 2017</div>
+        <div class="exp-meta">Ben Hur Public School, Pilibhit</div>
+
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>
